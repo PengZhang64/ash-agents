@@ -1,6 +1,6 @@
 ## Step 1 — Demo backbone
 
-1. `docker compose up -d`
+1. `docker compose -f deploy/docker-compose.yml up -d`
 2. Open changedetection.io at http://localhost:5000
 3. `./scripts/setup-watch.sh`
 4. Configure notification webhook (Discord/Telegram) in changedetection UI pointing to orchestrator if desired

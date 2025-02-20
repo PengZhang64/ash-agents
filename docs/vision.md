@@ -32,7 +32,7 @@ You never touch the site directly. Coordination stays behind the wall. Multiplic
 ## What you can run today
 
 ```bash
-make demo
+make -f scripts/Makefile demo
 open http://127.0.0.1:8090/
 ```
 

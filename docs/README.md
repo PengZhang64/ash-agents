@@ -2,6 +2,7 @@
 
 | Document | Description |
 |----------|-------------|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to run the demo and open PRs |
 | [vision.md](vision.md) | Platform story, whitepaper model, what ships today |
 | [burner_whitepaper.pdf](burner_whitepaper.pdf) | Full thesis (PDF) |
 | [demo-script.md](demo-script.md) | 90 second live demo script |

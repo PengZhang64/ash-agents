@@ -1,8 +1,9 @@
 .PHONY: demo demo-stop smoke install-orchestrator install-product
 
+ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/..)
 PYTHON ?= python3.11
-ORCH_DIR := services/orchestrator
-PRODUCT_DIR := demo/test-product
+ORCH_DIR := $(ROOT)/services/orchestrator
+PRODUCT_DIR := $(ROOT)/demo/test-product
 ORCH_PORT := 8090
 PRODUCT_PORT := 8088
 
@@ -27,7 +28,7 @@ demo: install-orchestrator install-product
 	@echo "  Burner Agents console: http://127.0.0.1:$(ORCH_PORT)/"
 	@echo "  Demo product:          http://127.0.0.1:$(PRODUCT_PORT)/"
 	@echo ""
-	@echo "Run: make smoke"
+	@echo "Run: make -f scripts/Makefile smoke"
 	@command -v open >/dev/null && open "http://127.0.0.1:$(ORCH_PORT)/" || true
 
 demo-stop:
@@ -36,4 +37,4 @@ demo-stop:
 	@echo "Demo stopped."
 
 smoke:
-	@./scripts/smoke-demo.sh
+	@$(ROOT)/scripts/smoke-demo.sh

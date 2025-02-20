@@ -9,7 +9,7 @@
 ## Before you go on stage
 
 ```bash
-make demo
+make -f scripts/Makefile demo
 # Opens http://127.0.0.1:8090/
 ```
 
@@ -37,4 +37,4 @@ Optional: open the demo product in a second window (`http://127.0.0.1:8088/`) if
 ## Troubleshooting
 
 - Blank log after launch: ensure demo product is up (`curl http://127.0.0.1:8088/health`).
-- `make smoke` must pass before presenting.
+- `make -f scripts/Makefile smoke` must pass before presenting.

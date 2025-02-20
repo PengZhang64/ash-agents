@@ -7,7 +7,7 @@ Thanks for helping improve Burner Agents.
 ```bash
 git clone https://github.com/TryKosm/burner-agents.git
 cd burner-agents
-make demo
+make -f scripts/Makefile demo
 ```
 
 Console: http://127.0.0.1:8090/

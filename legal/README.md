@@ -1,0 +1,3 @@
+# legal
+
+Project license (MIT).

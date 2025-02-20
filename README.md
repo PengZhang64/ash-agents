@@ -7,7 +7,7 @@ Delegate tasks to a swarm of disposable agents. The web sees unrelated strangers
 ![Burner Agents console](docs/assets/console-demo.png)
 
 ```bash
-make demo
+make -f scripts/Makefile demo
 # open http://127.0.0.1:8090/
 ```
 
@@ -31,15 +31,19 @@ Sites profile you by IP, fingerprint, and behavior. One persistent watcher is ea
 
 ```
 burner-agents/
+├── README.md
+├── config/                 # .env.example
+├── deploy/                 # docker-compose for restock sentinel stack
 ├── demo/
 │   ├── console/            # product UI: delegate, swarm, RUN.LOG
 │   └── test-product/       # local page for demos
-├── services/
-│   ├── orchestrator/       # delegate API, SSE, sentinel webhooks
-│   ├── identity/           # disposable identity per agent
-│   └── buy-assist/         # checkout assist under a clean identity
-├── docs/                   # whitepaper, vision, demo script
-└── docker-compose.yml      # optional restock sentinel stack
+├── docs/                   # whitepaper, vision, contributing
+├── legal/                  # LICENSE
+├── scripts/                # Makefile, setup, smoke, demo helpers
+└── services/
+    ├── orchestrator/
+    ├── identity/
+    └── buy-assist/
 ```
 
 | Today | Roadmap |
@@ -53,7 +57,7 @@ burner-agents/
 **Console (fastest path, no Docker)**
 
 ```bash
-make demo
+make -f scripts/Makefile demo
 open http://127.0.0.1:8090/
 ```
 
@@ -62,8 +66,8 @@ Choose **Check demo product** or type a task, set agent count, click **LAUNCH SW
 **Application: restock sentinel (Docker)**
 
 ```bash
-cp .env.example .env
-docker compose up -d
+cp config/.env.example .env
+docker compose -f deploy/docker-compose.yml up -d
 ./scripts/setup-watch.sh
 ./scripts/flip-stock.sh
 ```
@@ -97,7 +101,7 @@ PYTHONPATH=services:services/orchestrator:services/identity:services/buy-assist 
   pytest services/orchestrator/tests services/identity/tests -q
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 ## Status and licensing
 
@@ -107,7 +111,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-MIT. See [LICENSE](LICENSE). changedetection.io is a separate upstream project driven via REST API only.
+MIT. See [legal/LICENSE](legal/LICENSE). changedetection.io is a separate upstream project driven via REST API only.
 
 ---
 
