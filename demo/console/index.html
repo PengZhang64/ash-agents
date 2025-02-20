@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Burner Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">BURNER AGENTS</div>
+    <nav class="nav">
+      <a href="/docs/burner_whitepaper.pdf" target="_blank" rel="noopener">DOCS</a>
+      <span class="nav-sep">·</span>
+      <a href="#about">ABOUT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="delegate">
+      <p class="label">Delegate to the swarm</p>
+      <textarea id="intent" rows="3" placeholder="Describe what the swarm should do on the web…"></textarea>
+      <div class="controls">
+        <label class="agents-label">
+          Agents
+          <select id="agent-count">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <button type="button" id="launch" class="btn-primary">LAUNCH SWARM</button>
+      </div>
+      <div class="presets">
+        <span class="presets-label">Presets</span>
+        <button type="button" class="btn-preset" data-preset="check_product">Check demo product</button>
+        <button type="button" class="btn-preset" data-preset="watch_drop">Watch drop</button>
+      </div>
+    </section>
+
+    <section class="panels">
+      <div class="panel">
+        <div class="panel-title">SWARM</div>
+        <ul id="swarm-list" class="swarm-list">
+          <li class="agent-row idle"><span class="agent-id">—</span><span class="agent-state">idle</span></li>
+        </ul>
+      </div>
+      <div class="panel panel-log">
+        <div class="panel-title">RUN.LOG</div>
+        <pre id="log" class="log" aria-live="polite"></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer id="about" class="footer">
+    <p>You delegate. The web sees strangers — born for one task, destroyed when done.</p>
+    <p class="footer-sub">Burner Sentinel runs as an optional preset on this platform.</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
