@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Burner Agents</title>
+  <title>Burner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -11,56 +11,72 @@
 </head>
 <body>
   <header class="top">
-    <div class="brand">BURNER AGENTS</div>
+    <div class="brand">BURNER</div>
     <nav class="nav">
-      <a href="/docs/burner_whitepaper.pdf" target="_blank" rel="noopener">DOCS</a>
+      <a href="/docs/burner_whitepaper.pdf" target="_blank" rel="noopener">WHITEPAPER</a>
       <span class="nav-sep">·</span>
-      <a href="#about">ABOUT</a>
+      <a href="/docs/vision.md" target="_blank" rel="noopener">VISION</a>
     </nav>
   </header>
 
-  <main>
-    <section class="delegate">
-      <p class="label">Delegate to the swarm</p>
-      <textarea id="intent" rows="3" placeholder="Describe what the swarm should do on the web…"></textarea>
-      <div class="controls">
-        <label class="agents-label">
-          Agents
-          <select id="agent-count">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3" selected>3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </label>
-        <button type="button" id="launch" class="btn-primary">LAUNCH SWARM</button>
-      </div>
-      <div class="presets">
-        <span class="presets-label">Presets</span>
-        <button type="button" class="btn-preset" data-preset="check_product">Check demo product</button>
-        <button type="button" class="btn-preset" data-preset="watch_drop">Watch drop</button>
-      </div>
-    </section>
+  <section class="delegate-bar">
+    <div class="panel-head">YOU</div>
+    <textarea id="intent" rows="2" placeholder="Delegate intent in plain language…"></textarea>
+    <div class="controls">
+      <label class="agents-label">
+        Agents
+        <select id="agent-count">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+        </select>
+      </label>
+      <button type="button" class="btn-preset" data-preset="check_storefront">Check demo storefront</button>
+      <button type="button" id="launch" class="btn-primary">DELEGATE</button>
+    </div>
+  </section>
 
-    <section class="panels">
-      <div class="panel">
-        <div class="panel-title">SWARM</div>
-        <ul id="swarm-list" class="swarm-list">
-          <li class="agent-row idle"><span class="agent-id">—</span><span class="agent-state">idle</span></li>
-        </ul>
+  <section class="architecture">
+    <div class="col col-you">
+      <div class="panel-head">YOU</div>
+      <p class="dim">Intent stays here. You never touch the web.</p>
+      <div id="result-box" class="result-box hidden">
+        <div class="panel-head sub">RESULT</div>
+        <p id="reconcile-text"></p>
       </div>
-      <div class="panel panel-log">
-        <div class="panel-title">RUN.LOG</div>
-        <pre id="log" class="log" aria-live="polite"></pre>
-      </div>
-    </section>
-  </main>
+    </div>
 
-  <footer id="about" class="footer">
-    <p>You delegate. The web sees strangers, born for one task, destroyed when done.</p>
-    <p class="footer-sub">Restock sentinel is one application preset on this platform.</p>
-  </footer>
+    <div class="col col-orch">
+      <div class="panel-head">ORCHESTRATION <span class="tag-private">PRIVATE</span></div>
+      <pre id="orch-feed" class="feed"></pre>
+    </div>
+
+    <div class="col col-wall">
+      <div class="wall-label">THE WALL</div>
+      <div class="wall-diagram">
+        <span>intent</span>
+        <span class="wall-block">■</span>
+        <span>strangers only →</span>
+      </div>
+      <p class="dim wall-caption">Coordination private. Multiplicity observable.</p>
+    </div>
+
+    <div class="col col-swarm">
+      <div class="panel-head">SWARM</div>
+      <ul id="swarm-list" class="swarm-list"></ul>
+    </div>
+
+    <div class="col col-web">
+      <div class="panel-head">THE WEB</div>
+      <p class="dim">What sites observe:</p>
+      <pre id="web-feed" class="feed"></pre>
+    </div>
+  </section>
+
+  <section class="log-section">
+    <div class="panel-head">RUN.LOG</div>
+    <pre id="log" class="log" aria-live="polite"></pre>
+  </section>
 
   <script src="/static/app.js"></script>
 </body>

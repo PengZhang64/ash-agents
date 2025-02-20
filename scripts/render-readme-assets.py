@@ -34,7 +34,7 @@ def render_console_demo(path: Path) -> None:
     sans = _font(14)
 
     draw.line([(0, 48), (w, 48)], fill="#333333", width=1)
-    draw.text((32, 16), "BURNER AGENTS", fill="#ffffff", font=mono)
+    draw.text((32, 16), "BURNER", fill="#ffffff", font=mono)
     draw.text((w - 200, 18), "DOCS · ABOUT", fill="#888888", font=mono_sm)
 
     draw.text((32, 72), "DELEGATE TO THE SWARM", fill="#888888", font=mono_sm)
@@ -45,7 +45,7 @@ def render_console_demo(path: Path) -> None:
     draw.rectangle([(100, 182), (160, 212)], outline="#555555", width=1)
     draw.text((112, 192), "3", fill="#ffffff", font=mono_sm)
     draw.rectangle([(200, 182), (380, 212)], fill="#ffffff", outline="#ffffff")
-    draw.text((228, 192), "LAUNCH SWARM", fill="#000000", font=mono_sm)
+    draw.text((248, 192), "DELEGATE", fill="#000000", font=mono_sm)
 
     y0 = 240
     draw.line([(32, y0), (w - 32, y0)], fill="#333333", width=1)
@@ -88,7 +88,7 @@ def render_social_preview(path: Path) -> None:
     mono_lg = _font(52, mono=True)
     sans = _font(22)
 
-    draw.text((80, 200), "BURNER AGENTS", fill="#ffffff", font=mono_lg)
+    draw.text((80, 200), "BURNER", fill="#ffffff", font=mono_lg)
     draw.text(
         (80, 290),
         "Delegate to a swarm of disposable agents.",

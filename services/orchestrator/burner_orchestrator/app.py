@@ -29,7 +29,7 @@ DOCS_DIR = REPO_ROOT / "docs"
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="Burner Agents", version="0.2.0")
+    app = FastAPI(title="Burner", version="0.3.0")
     meter = BurnerMeter(stub_balance=settings.burner_meter_stub_balance)
     audit = IdentityAuditLog()
     dispatcher = BuyAssistDispatcher()
@@ -85,6 +85,11 @@ def create_app() -> FastAPI:
     @app.post("/api/delegate", response_model=DelegateResponse)
     async def delegate(body: DelegateBody) -> DelegateResponse:
         try:
+            from reasoning.planner import PlannerError  # type: ignore
+        except ImportError:
+            PlannerError = Exception  # type: ignore
+
+        try:
             req = DelegateRequest(
                 intent=body.intent,
                 preset=body.preset,
@@ -92,14 +97,12 @@ def create_app() -> FastAPI:
             )
             intent = swarm.resolve_intent(req)
             task_id, agents = swarm.start(req)
-            for row in agents:
-                if IdentityFactory:
-                    identity = IdentityFactory().next_identity()
-                    audit.record(identity.fingerprint_seed, identity.proxy_url, identity.user_agent)
             meter.record_watch()
             return DelegateResponse(task_id=task_id, agents=agents, intent=intent)
         except ValueError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
+        except PlannerError as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
 
     @app.get("/api/events/stream")
     async def event_stream(task_id: str | None = None) -> StreamingResponse:
@@ -111,9 +114,7 @@ def create_app() -> FastAPI:
                     event = await queue.get()
                     if task_id:
                         evt_task = event.get("task_id")
-                        if event.get("type") == "log" and evt_task and evt_task != task_id:
-                            continue
-                        if event.get("type") == "done" and evt_task and evt_task != task_id:
+                        if evt_task and evt_task != task_id:
                             continue
                     yield EventBus.format_sse(event)
                     if event.get("type") == "done" and (

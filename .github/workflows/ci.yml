@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      BURNER_DEMO_MOCK: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -16,8 +18,10 @@ jobs:
           python-version: "3.11"
       - name: Install orchestrator deps
         working-directory: services/orchestrator
-        run: pip install -r requirements.txt pytest
+        run: pip install -r requirements.txt pytest playwright
+      - name: Install Playwright browser
+        run: playwright install chromium
       - name: Run tests
         env:
-          PYTHONPATH: services:services/orchestrator:services/identity:services/buy-assist
-        run: pytest services/orchestrator/tests services/identity/tests -q
+          PYTHONPATH: services:services/orchestrator:services/identity:services/buy-assist:services/reasoning
+        run: pytest services/orchestrator/tests services/identity/tests services/reasoning/tests -q

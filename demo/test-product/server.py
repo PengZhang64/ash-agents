@@ -30,6 +30,18 @@ def get_stock() -> dict[str, bool | str]:
     return {"in_stock": _state["in_stock"], "title": _state["title"]}
 
 
+@app.get("/api/page-summary")
+def page_summary() -> dict[str, str | bool]:
+    status = "In Stock" if _state["in_stock"] else "Out of Stock"
+    return {
+        "title": _state["title"],
+        "stock_status": status,
+        "in_stock": _state["in_stock"],
+        "sku": "BURNER-DEMO-001",
+        "hint": "Demo storefront for Burner swarm tasks.",
+    }
+
+
 @app.post("/admin/toggle")
 def toggle_stock() -> dict[str, bool]:
     _state["in_stock"] = not _state["in_stock"]
