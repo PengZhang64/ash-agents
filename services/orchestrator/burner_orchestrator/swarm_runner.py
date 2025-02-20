@@ -141,7 +141,7 @@ class SwarmRunner:
 
         if preset == "watch_drop":
             await self._bus.log(
-                f"{_ts()} {agent_id} watch_drop: monitoring delegated (Sentinel preset)",
+                f"{_ts()} {agent_id} watch_drop: restock sentinel preset delegated",
                 level="dim",
                 task_id=task_id,
             )

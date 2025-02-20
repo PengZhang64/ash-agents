@@ -1,1 +1,1 @@
-"""Disposable identity rotation for Burner Sentinel checks."""
+"""Disposable identity rotation for Burner Agents."""

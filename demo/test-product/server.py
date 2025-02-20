@@ -13,7 +13,7 @@ app = FastAPI(title="Burner Demo Product")
 STATIC = Path(__file__).parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
-_state = {"in_stock": False, "title": "Burner Sentinel Demo Sneaker"}
+_state = {"in_stock": False, "title": "Burner Agents Demo Sneaker"}
 
 
 class StockState(BaseModel):

@@ -1,7 +1,8 @@
 # Burner Sentinel — Build Specification
 
+Application spec for the **restock sentinel** preset on [Burner Agents](../README.md). Not the platform name.
+
 A restock monitor that watches as a disposable stranger and assists checkout on the drop.
-Hand this to Cursor as the project brief.
 
 ---
 

@@ -1,1 +1,1 @@
-"""Burner Sentinel orchestrator — identity rotation, webhooks, meter."""
+"""Burner Agents orchestrator — delegation, identity rotation, webhooks, meter."""

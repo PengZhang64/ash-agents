@@ -1,79 +1,85 @@
-# Burner Sentinel
+# Burner Agents
 
-Catch restocks the instant they drop, checking as a different identity every time so the site never sees one watcher to block.
+Delegate tasks to a swarm of disposable agents. The web sees unrelated strangers, not you. Each agent is born for one job and destroyed when done.
 
 ![CI](https://github.com/TryKosm/burner-agents/actions/workflows/ci.yml/badge.svg)
 
-## Why
-
-Ordinary monitors poll from one IP and one browser fingerprint. Stores rate-limit or block that pattern, and you miss the drop. Burner Sentinel rotates a fresh disposable identity on every check and can assist your checkout when stock returns.
-
-## Capabilities
-
-| Capability | What it does |
-|------------|--------------|
-| Disposable identity per check | New fingerprint and proxy each poll so the site never links checks to one watcher |
-| Restock and price detection | Self-hosted changedetection.io watches product pages and diffs stock or price |
-| Instant alerts | Discord, Telegram, or webhook when a watch fires |
-| Checkout assist | Single-unit add-to-cart handoff under a clean identity, not mass-buy automation |
-| Usage metering | Stub $BURNER meter counts watches and buy-assists (chain later) |
-
-## Quickstart
+![Burner Agents console](docs/assets/console-demo.png)
 
 ```bash
-cp .env.example .env
-docker compose up -d
-# Wait for http://localhost:5000 and http://localhost:8090/health
-./scripts/setup-watch.sh
-./scripts/flip-stock.sh
-open http://localhost:8090/
+make demo
+# open http://127.0.0.1:8090/
 ```
 
-Console-only demo (no Docker):
+Read the thesis: [docs/burner_whitepaper.pdf](docs/burner_whitepaper.pdf). Platform overview: [docs/vision.md](docs/vision.md).
+
+## Why
+
+Sites profile you by IP, fingerprint, and behavior. One persistent watcher is easy to block. Linked sessions are easy to attribute back to you. Burner Agents separates **you** from **what the web sees**: a crowd of strangers that never forms a single profile.
+
+## How it works
+
+```
+     YOU  -->  orchestration (private)  -->  THE WALL  -->  swarm  -->  THE WEB
+```
+
+| Layer | What it means |
+|-------|----------------|
+| Isolation | Fresh fingerprint and proxy per agent; destroyed after the task |
+| Reasoning | You describe intent; agents execute on live URLs (scripted runner today) |
+| Orchestration | Fan-out, live log, proof on destroy. Coordination stays off the public web |
+
+```
+burner-agents/
+├── demo/
+│   ├── console/            # product UI: delegate, swarm, RUN.LOG
+│   └── test-product/       # local page for demos
+├── services/
+│   ├── orchestrator/       # delegate API, SSE, sentinel webhooks
+│   ├── identity/           # disposable identity per agent
+│   └── buy-assist/         # checkout assist under a clean identity
+├── docs/                   # whitepaper, vision, demo script
+└── docker-compose.yml      # optional restock sentinel stack
+```
+
+| Today | Roadmap |
+|-------|---------|
+| Swarm console, identity rotation, destruction proofs | LLM intent parsing |
+| HTTP fetch against demo product | CloakBrowser per agent |
+| Stub $BURNER meter | On-chain metering |
+
+## Try it
+
+**Console (fastest path, no Docker)**
 
 ```bash
 make demo
 open http://127.0.0.1:8090/
 ```
 
-## How it works
+Choose **Check demo product** or type a task, set agent count, click **LAUNCH SWARM**.
 
-```
-burner-agents/
-├── services/
-│   ├── orchestrator/       # restock webhook, swarm console, buy-assist dispatch
-│   ├── identity/           # fresh fingerprint + proxy per check, destroyed after
-│   └── buy-assist/         # checkout-assist agent under a clean identity
-├── demo/
-│   ├── test-product/       # local sneaker page with in-stock toggle for demos
-│   └── console/            # Burner Agents web UI (launch swarm, live log)
-├── scripts/                # setup-watch, flip-stock, smoke, rehearsal
-├── docs/                   # spec, demo script, whitepaper
-└── docker-compose.yml      # changedetection.io engine + our services
+**Application: restock sentinel (Docker)**
+
+```bash
+cp .env.example .env
+docker compose up -d
+./scripts/setup-watch.sh
+./scripts/flip-stock.sh
 ```
 
-- You register a watch on a product URL. changedetection.io polls on a schedule.
-- Each poll can run through the identity layer with a new fingerprint and proxy.
-- On restock, changedetection notifies the orchestrator via webhook.
-- The orchestrator dispatches buy-assist under another disposable identity, then tears it down.
+Uses changedetection.io for diffs, webhooks, and optional Discord or Telegram alerts. See [docs/burner-sentinel-spec.md](docs/burner-sentinel-spec.md).
 
-## Demo
+## Capabilities
 
-**Sentinel (Docker stack)**
-
-1. Demo product starts out of stock.
-2. `./scripts/flip-stock.sh` toggles in stock.
-3. changedetection fires an alert to your notification channel or webhook.
-4. Orchestrator runs buy-assist and reports cart handoff.
-5. Identity is destroyed. The next check is a different stranger.
-
-**Burner Agents console**
-
-1. `make demo` starts the console and demo product locally.
-2. Open http://127.0.0.1:8090/, choose **Check demo product** or enter a task.
-3. Click **LAUNCH SWARM** and watch agents spawn, fetch stock, and vanish with proof hashes.
-
-Step-by-step presenter notes: [`docs/demo-script.md`](docs/demo-script.md). Full design: [`docs/burner-sentinel-spec.md`](docs/burner-sentinel-spec.md). Thesis: [`docs/burner_whitepaper.pdf`](docs/burner_whitepaper.pdf).
+| Capability | What it does |
+|------------|----------------|
+| Swarm delegation | Fan out N disposable agents from one intent |
+| Disposable identity | New seed, user agent, and optional proxy per agent |
+| Destruction proof | Commitment hash logged when an identity is torn down |
+| Live orchestration log | SSE stream of spawn, fetch, and destroy events |
+| Restock sentinel (app) | Watch a product, alert on change, assist checkout on the drop |
+| Usage metering | Stub $BURNER meter for watches and buy-assists |
 
 ## Development
 
@@ -91,12 +97,22 @@ PYTHONPATH=services:services/orchestrator:services/identity:services/buy-assist 
   pytest services/orchestrator/tests services/identity/tests -q
 ```
 
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Status and licensing
 
-**Prototype.** changedetection.io has Apache-2.0 core plus separate commercial terms. Clarify license before paid or production use.
+**Prototype.** changedetection.io has Apache-2.0 core plus separate commercial terms. Clarify license before paid or production use of the sentinel stack.
 
-**Buy-assist only.** This stack monitors, alerts, and assists the user's own checkout. It does not run autonomous mass-purchase or resell automation.
+**Buy-assist only.** Monitor, alert, and assist the user's own checkout. No autonomous mass-purchase or resell automation.
 
 ## License
 
-MIT. See [LICENSE](LICENSE). changedetection.io is a separate upstream project. This repo drives it via REST API only.
+MIT. See [LICENSE](LICENSE). changedetection.io is a separate upstream project driven via REST API only.
+
+---
+
+**GitHub About (set in repo Settings):** Delegate to a swarm of disposable agents. The web sees strangers, not you.
+
+**Topics:** `agents`, `privacy`, `web-automation`, `orchestration`, `python`, `restock-alerts`
+
+**Social preview:** upload [docs/assets/social-preview.png](docs/assets/social-preview.png) under Settings → General → Social preview.
