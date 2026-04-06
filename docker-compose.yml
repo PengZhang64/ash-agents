@@ -1,0 +1,57 @@
+services:
+  changedetection:
+    image: ghcr.io/dgtlmoon/changedetection.io:0.47.04
+    container_name: burner-cd
+    ports:
+      - "5000:5000"
+    volumes:
+      - cd-data:/data
+    environment:
+      - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000
+      - HIDE_REFERER=true
+    depends_on:
+      - playwright-chrome
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  playwright-chrome:
+    image: dgtlmoon/sockpuppetbrowser:latest
+    container_name: burner-playwright
+    cap_add:
+      - SYS_ADMIN
+    restart: unless-stopped
+
+  test-product:
+    build: ./demo/test-product
+    container_name: burner-test-product
+    ports:
+      - "8088:8088"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8088/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  orchestrator:
+    build: ./services/orchestrator
+    container_name: burner-orchestrator
+    ports:
+      - "8090:8090"
+    environment:
+      - CHANGEDETECTION_URL=http://changedetection:5000
+      - TEST_PRODUCT_URL=http://test-product:8088
+      - BURNER_METER_STUB_BALANCE=1000
+    volumes:
+      - ./services/identity:/app/identity_pkg:ro
+      - ./services/buy-assist:/app/buy_assist_pkg:ro
+    depends_on:
+      changedetection:
+        condition: service_healthy
+      test-product:
+        condition: service_healthy
+
+volumes:
+  cd-data:
