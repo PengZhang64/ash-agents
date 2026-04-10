@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="product">
+    <img src="/static/sneaker.svg" alt="Demo product" class="hero" />
+    <h1>{{TITLE}}</h1>
+    <p class="badge {{BADGE_CLASS}}" id="stock-badge">{{STATUS}}</p>
+    <p class="sku">SKU: BURNER-DEMO-001</p>
+    <button class="buy" disabled id="buy-btn">Add to cart</button>
+    <p class="hint">Demo page for Burner Sentinel restock monitoring.</p>
+  </main>
+  <script>
+    const inStock = {{STOCK_FLAG}};
+    document.getElementById('buy-btn').disabled = !inStock;
+  </script>
+</body>
+</html>
