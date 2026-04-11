@@ -1,0 +1,38 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0f1115;
+  color: #e8eaed;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.product {
+  max-width: 420px;
+  padding: 2rem;
+  text-align: center;
+}
+.hero { width: 200px; height: 200px; margin-bottom: 1rem; }
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.out-of-stock { background: #3d1f1f; color: #ffb4b4; }
+.in-stock { background: #1f3d28; color: #b4ffca; }
+.buy {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.buy:disabled { opacity: 0.4; cursor: not-allowed; }
+.hint { color: #9aa0a6; font-size: 0.85rem; margin-top: 1.5rem; }
+.sku { color: #9aa0a6; }
