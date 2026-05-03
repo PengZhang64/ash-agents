@@ -7,3 +7,4 @@
 - 2026-04-30 [step2] docs: document disposable identity layer
 - 2026-05-01 [step2] fix: normalize proxy URL parsing
 - 2026-05-01 [step2] feat: add identity audit log endpoint
+- 2026-05-03 [step2] feat: expose last N check identities in UI
