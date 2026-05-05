@@ -10,3 +10,4 @@
 - 2026-05-03 [step2] feat: expose last N check identities in UI
 - 2026-05-04 [step2] chore: pin playwright dependency versions
 - 2026-05-04 [step2] test: add identity audit API tests
+- 2026-05-05 [step2] refactor: simplify launcher config
