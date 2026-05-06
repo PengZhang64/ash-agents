@@ -12,3 +12,4 @@
 - 2026-05-04 [step2] test: add identity audit API tests
 - 2026-05-05 [step2] refactor: simplify launcher config
 - 2026-05-06 [step2] docs: add Step 2 verification checklist
+- 2026-05-06 [step2] fix: handle missing proxy gracefully
