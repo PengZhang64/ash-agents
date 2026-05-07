@@ -13,3 +13,4 @@
 - 2026-05-05 [step2] refactor: simplify launcher config
 - 2026-05-06 [step2] docs: add Step 2 verification checklist
 - 2026-05-06 [step2] fix: handle missing proxy gracefully
+- 2026-05-07 [step2] feat: add identity metrics counters
