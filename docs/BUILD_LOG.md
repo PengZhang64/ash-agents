@@ -15,3 +15,4 @@
 - 2026-05-06 [step2] fix: handle missing proxy gracefully
 - 2026-05-07 [step2] feat: add identity metrics counters
 - 2026-05-07 [step2] test: add metrics endpoint tests
+- 2026-05-07 [step2] chore: add example env for identity layer
