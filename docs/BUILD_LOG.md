@@ -16,3 +16,4 @@
 - 2026-05-07 [step2] feat: add identity metrics counters
 - 2026-05-07 [step2] test: add metrics endpoint tests
 - 2026-05-07 [step2] chore: add example env for identity layer
+- 2026-05-08 [step3] feat: add buy-assist service scaffold
