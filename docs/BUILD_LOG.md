@@ -18,3 +18,4 @@
 - 2026-05-07 [step2] chore: add example env for identity layer
 - 2026-05-08 [step3] feat: add buy-assist service scaffold
 - 2026-05-08 [step3] feat: add restock alert event schema
+- 2026-05-09 [step3] feat: add changedetection notification parser
