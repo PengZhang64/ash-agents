@@ -21,3 +21,4 @@
 - 2026-05-09 [step3] feat: add changedetection notification parser
 - 2026-05-09 [step3] feat: add buy-assist dispatch queue
 - 2026-05-11 [step3] feat: add checkout assist workflow steps
+- 2026-05-12 [step3] feat: add add-to-cart assist handler
