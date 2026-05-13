@@ -23,3 +23,4 @@
 - 2026-05-11 [step3] feat: add checkout assist workflow steps
 - 2026-05-12 [step3] feat: add add-to-cart assist handler
 - 2026-05-12 [step3] feat: add checkout handoff reporter
+- 2026-05-13 [step3] feat: add identity teardown after assist
