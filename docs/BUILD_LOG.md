@@ -26,3 +26,4 @@
 - 2026-05-13 [step3] feat: add identity teardown after assist
 - 2026-05-13 [step3] feat: wire orchestrator to buy-assist dispatch
 - 2026-05-14 [step3] feat: add assist-only policy guardrails
+- 2026-05-15 [step3] test: add alert parser tests
