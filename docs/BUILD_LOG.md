@@ -28,3 +28,4 @@
 - 2026-05-14 [step3] feat: add assist-only policy guardrails
 - 2026-05-15 [step3] test: add alert parser tests
 - 2026-05-15 [step3] test: add buy-assist workflow tests
+- 2026-05-16 [step3] feat: add assist run history store
