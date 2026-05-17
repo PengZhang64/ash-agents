@@ -30,3 +30,4 @@
 - 2026-05-15 [step3] test: add buy-assist workflow tests
 - 2026-05-16 [step3] feat: add assist run history store
 - 2026-05-16 [step3] feat: add assist status API routes
+- 2026-05-17 [step3] docs: document buy-assist assist-only limits
