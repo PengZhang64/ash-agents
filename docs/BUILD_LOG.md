@@ -32,3 +32,4 @@
 - 2026-05-16 [step3] feat: add assist status API routes
 - 2026-05-17 [step3] docs: document buy-assist assist-only limits
 - 2026-05-17 [step3] fix: reject mass-buy assist requests
+- 2026-05-19 [step3] refactor: split assist agent modules
