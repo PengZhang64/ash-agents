@@ -34,3 +34,4 @@
 - 2026-05-17 [step3] fix: reject mass-buy assist requests
 - 2026-05-19 [step3] refactor: split assist agent modules
 - 2026-05-19 [step3] feat: add demo rehearse-buy-assist script
+- 2026-05-19 [step3] test: add policy guardrail tests
