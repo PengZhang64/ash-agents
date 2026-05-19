@@ -2,9 +2,7 @@
 
 A swarm of disposable agents for unattributable web interaction. Each task runs under a fresh identity that is destroyed on completion, so you are represented online not by one persistent self but by a continuous supply of unrelated strangers, none of which leads back.
 
-
 <img width="1915" height="821" alt="image" src="https://github.com/user-attachments/assets/37a62696-d1d5-4d86-bc1f-1237dcc90c68" />
-
 
 ## Why Burner
 
@@ -51,7 +49,6 @@ Three ideas govern the system.
 - **No exposed center.** Because coordination lives only within your trust boundary, an observer of the swarm sees unrelated participants and no coordinating entity. There is no single identity whose discovery compromises the others.
 
 <img width="1672" height="941" alt="unknown" src="https://github.com/user-attachments/assets/11fabb34-cfac-4596-af4b-c97b0345b2d7" />
-
 
 ## License
 

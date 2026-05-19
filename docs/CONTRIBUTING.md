@@ -5,7 +5,7 @@ Thanks for helping improve Burner Agents.
 ## Local setup
 
 ```bash
-git clone https://github.com/TryKosm/burner-agents.git
+git clone https://github.com/NotPBShaw/burner-agents.git
 cd burner-agents
 make -f scripts/Makefile demo
 ```

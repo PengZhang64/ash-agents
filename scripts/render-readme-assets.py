@@ -102,7 +102,7 @@ def render_social_preview(path: Path) -> None:
         font=sans,
     )
     draw.rectangle([(80, 400), (340, 448)], outline="#ffffff", width=1)
-    draw.text((110, 412), "github.com/TryKosm/burner-agents", fill="#ffffff", font=mono)
+    draw.text((110, 412), "github.com/NotPBShaw/burner-agents", fill="#ffffff", font=mono)
 
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path, "PNG", optimize=True)
