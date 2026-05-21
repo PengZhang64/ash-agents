@@ -37,3 +37,4 @@
 - 2026-05-19 [step3] test: add policy guardrail tests
 - 2026-05-20 [step3] feat: add webhook signature verification stub
 - 2026-05-21 [step3] chore: add buy-assist env example
+- 2026-05-21 [step3] docs: add Step 3 integration notes
