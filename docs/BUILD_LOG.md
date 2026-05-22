@@ -39,3 +39,4 @@
 - 2026-05-21 [step3] chore: add buy-assist env example
 - 2026-05-21 [step3] docs: add Step 3 integration notes
 - 2026-05-21 [step4] feat: add BURNER meter stub module
+- 2026-05-22 [step4] feat: add watch usage counter
