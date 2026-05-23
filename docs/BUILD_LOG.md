@@ -41,3 +41,4 @@
 - 2026-05-21 [step4] feat: add BURNER meter stub module
 - 2026-05-22 [step4] feat: add watch usage counter
 - 2026-05-23 [step4] feat: add buy-assist usage counter
+- 2026-05-23 [step4] feat: add meter API routes
