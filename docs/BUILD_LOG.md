@@ -42,3 +42,4 @@
 - 2026-05-22 [step4] feat: add watch usage counter
 - 2026-05-23 [step4] feat: add buy-assist usage counter
 - 2026-05-23 [step4] feat: add meter API routes
+- 2026-05-24 [step4] feat: add thin dashboard HTML shell
