@@ -44,3 +44,4 @@
 - 2026-05-23 [step4] feat: add meter API routes
 - 2026-05-24 [step4] feat: add thin dashboard HTML shell
 - 2026-05-24 [step4] feat: add dashboard identity rotation panel
+- 2026-05-25 [step4] feat: add dashboard meter panel
