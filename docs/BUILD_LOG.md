@@ -48,3 +48,4 @@
 - 2026-05-25 [step4] feat: link dashboard to changedetection UI
 - 2026-05-26 [step4] test: add meter counter tests
 - 2026-05-27 [step4] docs: document BURNER meter stub
+- 2026-05-28 [step4] refactor: unify orchestrator config
