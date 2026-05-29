@@ -51,3 +51,4 @@
 - 2026-05-28 [step4] refactor: unify orchestrator config
 - 2026-05-28 [step4] chore: add compose env template
 - 2026-05-28 [step5] feat: add demo rehearsal script
+- 2026-05-29 [step5] feat: improve test page toggle reliability
