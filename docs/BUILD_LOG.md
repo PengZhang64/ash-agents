@@ -55,3 +55,4 @@
 - 2026-05-29 [step5] docs: add live demo script to README
 - 2026-05-30 [step5] docs: add hard gates and license disclaimer
 - 2026-05-30 [step5] docs: add architecture diagram to README
+- 2026-05-30 [step5] chore: add supply-chain audit notes
