@@ -57,3 +57,4 @@
 - 2026-05-30 [step5] docs: add architecture diagram to README
 - 2026-05-30 [step5] chore: add supply-chain audit notes
 - 2026-06-01 [step5] test: add end-to-end demo smoke test
+- 2026-06-01 [step5] fix: polish dashboard copy for demo
