@@ -1,0 +1,98 @@
+index,datetime,message,phase
+1,2026-04-02T09:00:00,docs: add Burner Sentinel specification,step0
+2,2026-04-04T12:26:00,docs: add Cursor execution prompt,step0
+3,2026-04-04T16:13:00,chore: add project README skeleton,step0
+4,2026-04-05T15:52:00,chore: add gitignore and editorconfig,step0
+5,2026-04-05T19:39:00,chore: add MIT license,step0
+6,2026-04-06T11:05:00,chore: add docker compose skeleton,step1
+7,2026-04-06T18:18:00,feat: add changedetection.io service to compose,step1
+8,2026-04-07T14:31:00,feat: add demo test product nginx service,step1
+9,2026-04-08T10:44:00,feat: add static test product page shell,step1
+10,2026-04-10T09:23:00,feat: add out-of-stock default product markup,step1
+11,2026-04-10T13:10:00,feat: add stock toggle API for demo page,step1
+12,2026-04-10T17:57:00,feat: add product page styling,step1
+13,2026-04-11T12:49:00,feat: add orchestrator service scaffold,step1
+14,2026-04-11T16:36:00,feat: add FastAPI app entrypoint,step1
+15,2026-04-12T19:02:00,feat: add health and status routes,step1
+16,2026-04-13T15:15:00,feat: add changedetection REST client,step1
+17,2026-04-15T11:28:00,feat: add watch registration models,step1
+18,2026-04-15T14:54:00,feat: add create-watch API helper,step1
+19,2026-04-15T18:41:00,feat: add restock detection watch config,step1
+20,2026-04-16T09:46:00,feat: add notification webhook payload builder,step1
+21,2026-04-16T10:07:00,feat: add orchestrator webhook receiver stub,step1
+22,2026-04-16T13:33:00,feat: add setup-watch CLI script,step1
+23,2026-04-16T17:20:00,feat: add flip-stock demo script,step1
+24,2026-04-17T12:12:00,test: add changedetection client unit tests,step1
+25,2026-04-17T16:59:00,test: add webhook handler tests,step1
+26,2026-04-18T11:51:00,docs: document Step 1 demo backbone setup,step1
+27,2026-04-18T15:38:00,fix: tighten docker compose healthchecks,step1
+28,2026-04-18T19:25:00,feat: add identity service package scaffold,step2
+29,2026-04-19T18:04:00,feat: add disposable identity datamodel,step2
+30,2026-04-20T14:17:00,feat: add fingerprint seed generator,step2
+31,2026-04-22T09:09:00,feat: add proxy pool rotation helper,step2
+32,2026-04-22T10:30:00,feat: add CloakBrowser launcher interface,step2
+33,2026-04-22T13:56:00,feat: add Playwright fallback fetcher,step2
+34,2026-04-22T17:43:00,feat: add bot-detection spike script,step2
+35,2026-04-23T16:22:00,feat: wire identity into check pipeline,step2
+36,2026-04-24T12:35:00,feat: add per-check identity logging,step2
+37,2026-04-25T15:01:00,feat: add changedetection proxy config sync,step2
+38,2026-04-25T19:48:00,feat: add identity rotation middleware,step2
+39,2026-04-27T10:53:00,feat: add consecutive check diff verifier,step2
+40,2026-04-27T11:14:00,feat: add verify-identity-rotation script,step2
+41,2026-04-27T14:40:00,test: add fingerprint uniqueness tests,step2
+42,2026-04-27T18:27:00,test: add proxy rotation tests,step2
+43,2026-04-29T17:06:00,refactor: extract identity factory,step2
+44,2026-04-30T13:19:00,docs: document disposable identity layer,step2
+45,2026-05-01T09:32:00,fix: normalize proxy URL parsing,step2
+46,2026-05-01T16:45:00,feat: add identity audit log endpoint,step2
+47,2026-05-03T12:58:00,feat: expose last N check identities in UI,step2
+48,2026-05-04T15:24:00,chore: pin playwright dependency versions,step2
+49,2026-05-04T19:11:00,test: add identity audit API tests,step2
+50,2026-05-05T11:37:00,refactor: simplify launcher config,step2
+51,2026-05-06T14:03:00,docs: add Step 2 verification checklist,step2
+52,2026-05-06T18:50:00,fix: handle missing proxy gracefully,step2
+53,2026-05-07T10:16:00,feat: add identity metrics counters,step2
+54,2026-05-07T13:42:00,test: add metrics endpoint tests,step2
+55,2026-05-07T17:29:00,chore: add example env for identity layer,step2
+56,2026-05-08T09:55:00,feat: add buy-assist service scaffold,step3
+57,2026-05-08T16:08:00,feat: add restock alert event schema,step3
+58,2026-05-09T12:21:00,feat: add changedetection notification parser,step3
+59,2026-05-09T19:34:00,feat: add buy-assist dispatch queue,step3
+60,2026-05-11T15:47:00,feat: add checkout assist workflow steps,step3
+61,2026-05-12T11:00:00,feat: add add-to-cart assist handler,step3
+62,2026-05-12T18:13:00,feat: add checkout handoff reporter,step3
+63,2026-05-13T10:39:00,feat: add identity teardown after assist,step3
+64,2026-05-13T14:26:00,feat: wire orchestrator to buy-assist dispatch,step3
+65,2026-05-14T17:52:00,feat: add assist-only policy guardrails,step3
+66,2026-05-15T09:18:00,test: add alert parser tests,step3
+67,2026-05-15T13:05:00,test: add buy-assist workflow tests,step3
+68,2026-05-16T12:44:00,feat: add assist run history store,step3
+69,2026-05-16T16:31:00,feat: add assist status API routes,step3
+70,2026-05-17T15:10:00,docs: document buy-assist assist-only limits,step3
+71,2026-05-17T19:57:00,fix: reject mass-buy assist requests,step3
+72,2026-05-19T11:23:00,refactor: split assist agent modules,step3
+73,2026-05-19T14:49:00,feat: add demo rehearse-buy-assist script,step3
+74,2026-05-19T18:36:00,test: add policy guardrail tests,step3
+75,2026-05-20T10:02:00,feat: add webhook signature verification stub,step3
+76,2026-05-21T09:41:00,chore: add buy-assist env example,step3
+77,2026-05-21T13:28:00,docs: add Step 3 integration notes,step3
+78,2026-05-21T17:15:00,feat: add BURNER meter stub module,step4
+79,2026-05-22T16:54:00,feat: add watch usage counter,step4
+80,2026-05-23T12:07:00,feat: add buy-assist usage counter,step4
+81,2026-05-23T19:20:00,feat: add meter API routes,step4
+82,2026-05-24T11:46:00,feat: add thin dashboard HTML shell,step4
+83,2026-05-24T15:33:00,feat: add dashboard identity rotation panel,step4
+84,2026-05-25T14:12:00,feat: add dashboard meter panel,step4
+85,2026-05-25T18:59:00,feat: link dashboard to changedetection UI,step4
+86,2026-05-26T10:25:00,test: add meter counter tests,step4
+87,2026-05-27T17:38:00,docs: document BURNER meter stub,step4
+88,2026-05-28T09:04:00,refactor: unify orchestrator config,step4
+89,2026-05-28T13:51:00,chore: add compose env template,step4
+90,2026-05-28T16:17:00,feat: add demo rehearsal script,step5
+91,2026-05-29T12:30:00,feat: improve test page toggle reliability,step5
+92,2026-05-29T19:43:00,docs: add live demo script to README,step5
+93,2026-05-30T11:09:00,docs: add hard gates and license disclaimer,step5
+94,2026-05-30T15:56:00,docs: add architecture diagram to README,step5
+95,2026-05-30T18:22:00,chore: add supply-chain audit notes,step5
+96,2026-06-01T10:48:00,test: add end-to-end demo smoke test,step5
+97,2026-06-01T14:35:00,fix: polish dashboard copy for demo,step5
