@@ -19,5 +19,5 @@ jobs:
         run: pip install -r requirements.txt pytest
       - name: Run tests
         env:
-          PYTHONPATH: services/orchestrator:services/identity:services/buy-assist
+          PYTHONPATH: services:services/orchestrator
         run: pytest services/orchestrator/tests services/identity/tests -q

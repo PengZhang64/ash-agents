@@ -46,7 +46,7 @@ services:
       - BURNER_METER_STUB_BALANCE=1000
     volumes:
       - ./services/identity:/app/identity_pkg:ro
-      - ./services/buy-assist:/app/buy_assist_pkg:ro
+      - ./services/buy_assist:/app/buy_assist_pkg:ro
     depends_on:
       changedetection:
         condition: service_healthy
