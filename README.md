@@ -1,7 +1,10 @@
 # Burner Agents
 
 A swarm of disposable agents for unattributable web interaction. Each task runs under a fresh identity that is destroyed on completion, so you are represented online not by one persistent self but by a continuous supply of unrelated strangers, none of which leads back.
-<img width="1672" height="941" alt="unknown" src="https://github.com/user-attachments/assets/70b69cf2-1e64-486a-bb04-cafc0560b1a6" />
+
+
+<img width="1915" height="821" alt="image" src="https://github.com/user-attachments/assets/37a62696-d1d5-4d86-bc1f-1237dcc90c68" />
+
 
 ## Why Burner
 
@@ -57,8 +60,3 @@ MIT. See [LICENSE](legal/LICENSE).
 ## Notice
 
 This project is for privacy-preserving interaction with web services. It is a technical system, not an offer or inducement of any kind. You are responsible for ensuring any use complies with the terms of the services you interact with and with the law in your jurisdiction.
-
-
-
-https://github.com/user-attachments/assets/d4916490-de5c-4f9b-8bae-731fd91c1505
-
