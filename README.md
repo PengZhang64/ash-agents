@@ -1,6 +1,7 @@
-# Burner
+# Burner Agents
 
 A swarm of disposable agents for unattributable web interaction. Each task runs under a fresh identity that is destroyed on completion, so you are represented online not by one persistent self but by a continuous supply of unrelated strangers, none of which leads back.
+<img width="1672" height="941" alt="unknown" src="https://github.com/user-attachments/assets/70b69cf2-1e64-486a-bb04-cafc0560b1a6" />
 
 ## Why Burner
 
@@ -27,6 +28,8 @@ burner/
 - **Orchestration** binds the agents to your single intent entirely within your trust boundary. It is never exposed to any site. The coordination is private; only the multiplicity is observable.
 - **Identity** is scoped to the task, not to you and not to a durable session. Completion and erasure are a single event. No archive, no fallback copy, nothing kept against the possibility it might later be wanted.
 
+<img width="1672" height="941" alt="unknown" src="https://github.com/user-attachments/assets/054422a5-e4dd-4a51-9e66-64feeb2f556b" />
+
 ## Design principles
 
 Three ideas govern the system.
@@ -44,15 +47,8 @@ Three ideas govern the system.
 - **No persistent profile.** Because identities are destroyed and no state is retained, there is no durable record for a profile to attach to. The adversary's main instrument, accumulation of behavior over a stable identity, is denied its precondition.
 - **No exposed center.** Because coordination lives only within your trust boundary, an observer of the swarm sees unrelated participants and no coordinating entity. There is no single identity whose discovery compromises the others.
 
-## Limitations
+<img width="1672" height="941" alt="unknown" src="https://github.com/user-attachments/assets/11fabb34-cfac-4596-af4b-c97b0345b2d7" />
 
-Stated plainly, as any honest account should.
-
-Burner protects what is exposed to the web during a task. It does not secure your own device; a compromised endpoint is outside what the system can defend. Unattributability holds against an ordinary web adversary, not one with privileged access to infrastructure or to your trust boundary. And the system reduces correlation rather than making it categorically impossible, since no system that touches the web can claim a complete absence of observable signal. Effectiveness is a function of ongoing engineering against a changing web, not a fixed guarantee established once.
-
-## Status
-
-Active development. The architecture and threat model are described in full in [the whitepaper](docs/burner_whitepaper.pdf).
 
 ## License
 
@@ -61,3 +57,8 @@ MIT. See [LICENSE](legal/LICENSE).
 ## Notice
 
 This project is for privacy-preserving interaction with web services. It is a technical system, not an offer or inducement of any kind. You are responsible for ensuring any use complies with the terms of the services you interact with and with the law in your jurisdiction.
+
+
+
+https://github.com/user-attachments/assets/d4916490-de5c-4f9b-8bae-731fd91c1505
+
