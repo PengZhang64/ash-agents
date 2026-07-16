@@ -5,8 +5,8 @@ from threading import Lock
 
 
 @dataclass
-class BurnerMeter:
-    """Stub $BURNER meter — counts watches and buy-assists."""
+class AshMeter:
+    """Stub $ASH meter — counts watches and buy-assists."""
 
     stub_balance: int = 1000
     watches: int = 0

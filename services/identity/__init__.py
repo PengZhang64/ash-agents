@@ -1,1 +1,1 @@
-"""Disposable identity rotation for Burner Agents."""
+"""Disposable identity rotation for Ash Agents."""

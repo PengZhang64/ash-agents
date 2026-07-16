@@ -9,11 +9,11 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-app = FastAPI(title="Burner Demo Product")
+app = FastAPI(title="Ash Demo Product")
 STATIC = Path(__file__).parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
-_state = {"in_stock": False, "title": "Burner Agents Demo Sneaker"}
+_state = {"in_stock": False, "title": "Ash Agents Demo Sneaker"}
 
 
 class StockState(BaseModel):
@@ -37,8 +37,8 @@ def page_summary() -> dict[str, str | bool]:
         "title": _state["title"],
         "stock_status": status,
         "in_stock": _state["in_stock"],
-        "sku": "BURNER-DEMO-001",
-        "hint": "Demo storefront for Burner swarm tasks.",
+        "sku": "ASH-DEMO-001",
+        "hint": "Demo storefront for Ash swarm tasks.",
     }
 
 

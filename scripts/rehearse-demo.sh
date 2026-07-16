@@ -7,6 +7,6 @@ echo "Waiting for changedetection check cycle..."
 sleep 15
 curl -sf -X POST "${ORCHESTRATOR_URL:-http://localhost:8090}/api/webhooks/changedetection" \
   -H "Content-Type: application/json" \
-  -H "x-burner-secret: ${ORCHESTRATOR_WEBHOOK_SECRET:-dev-secret-change-me}" \
+  -H "x-ash-secret: ${ORCHESTRATOR_WEBHOOK_SECRET:-dev-secret-change-me}" \
   -d '{"uuid":"demo","watch_url":"http://test-product:8088/","title":"Demo restock","message":"Back in stock"}' \
   | python3 -m json.tool

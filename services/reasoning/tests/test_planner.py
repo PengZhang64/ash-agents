@@ -3,18 +3,18 @@ from __future__ import annotations
 import asyncio
 
 from reasoning.models import AgentResult
-from reasoning.planner import MockBurnerPlanner
+from reasoning.planner import MockAshPlanner
 
 
 def test_mock_decompose() -> None:
-    planner = MockBurnerPlanner()
+    planner = MockAshPlanner()
     plan = asyncio.run(planner.decompose("check stock", 2, "http://localhost:8088"))
     assert len(plan.subtasks) == 2
     assert plan.subtasks[0].agent_id == "agent-01"
 
 
 def test_mock_reconcile() -> None:
-    planner = MockBurnerPlanner()
+    planner = MockAshPlanner()
     results = [
         AgentResult(
             agent_id="agent-01",

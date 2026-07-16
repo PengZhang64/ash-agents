@@ -31,7 +31,7 @@ class IdentityFactory:
     def next_identity(self) -> DisposableIdentity:
         seed = hashlib.sha256(uuid.uuid4().bytes).hexdigest()[:16]
         ua_hash = hashlib.sha256(f"ua-{seed}".encode()).hexdigest()[:8]
-        user_agent = f"BurnerAgents/{ua_hash} (disposable)"
+        user_agent = f"AshAgents/{ua_hash} (disposable)"
         return DisposableIdentity(
             fingerprint_seed=seed,
             proxy_url=self._next_proxy(),

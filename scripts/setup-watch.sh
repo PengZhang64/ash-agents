@@ -5,4 +5,4 @@ ORCH="${ORCHESTRATOR_URL:-http://localhost:8090}"
 PRODUCT="${TEST_PRODUCT_URL:-http://localhost:8088}"
 curl -sf -X POST "$ORCH/api/watches" \
   -H "Content-Type: application/json" \
-  -d "{\"url\": \"$PRODUCT/\", \"title\": \"Burner demo sneaker\"}"
+  -d "{\"url\": \"$PRODUCT/\", \"title\": \"Ash demo sneaker\"}"

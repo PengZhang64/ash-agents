@@ -34,7 +34,7 @@ def render_console_demo(path: Path) -> None:
     sans = _font(14)
 
     draw.line([(0, 48), (w, 48)], fill="#333333", width=1)
-    draw.text((32, 16), "BURNER", fill="#ffffff", font=mono)
+    draw.text((32, 16), "ASH", fill="#ffffff", font=mono)
     draw.text((w - 200, 18), "DOCS · ABOUT", fill="#888888", font=mono_sm)
 
     draw.text((32, 72), "DELEGATE TO THE SWARM", fill="#888888", font=mono_sm)
@@ -88,7 +88,7 @@ def render_social_preview(path: Path) -> None:
     mono_lg = _font(52, mono=True)
     sans = _font(22)
 
-    draw.text((80, 200), "BURNER", fill="#ffffff", font=mono_lg)
+    draw.text((80, 200), "ASH", fill="#ffffff", font=mono_lg)
     draw.text(
         (80, 290),
         "Delegate to a swarm of disposable agents.",
@@ -102,7 +102,7 @@ def render_social_preview(path: Path) -> None:
         font=sans,
     )
     draw.rectangle([(80, 400), (340, 448)], outline="#ffffff", width=1)
-    draw.text((110, 412), "github.com/NotPBShaw/burner-agents", fill="#ffffff", font=mono)
+    draw.text((110, 412), "github.com/PengZhang64/ash-agents", fill="#ffffff", font=mono)
 
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path, "PNG", optimize=True)

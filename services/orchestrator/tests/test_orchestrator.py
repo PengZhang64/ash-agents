@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import pytest
 
-from burner_orchestrator.models import parse_changedetection_notification
-from burner_orchestrator.meter import BurnerMeter
-from burner_orchestrator.buy_assist_dispatch import BuyAssistDispatcher
+from ash_orchestrator.models import parse_changedetection_notification
+from ash_orchestrator.meter import AshMeter
+from ash_orchestrator.buy_assist_dispatch import BuyAssistDispatcher
 
 
 def test_parse_notification() -> None:
@@ -16,7 +16,7 @@ def test_parse_notification() -> None:
 
 
 def test_meter_counts() -> None:
-    m = BurnerMeter(stub_balance=100)
+    m = AshMeter(stub_balance=100)
     m.record_watch()
     m.record_buy_assist()
     snap = m.snapshot()

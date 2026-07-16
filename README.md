@@ -1,23 +1,23 @@
-# Burner Agents
+# Ash Agents
 
 A swarm of disposable agents for unattributable web interaction. Each task runs under a fresh identity that is destroyed on completion, so you are represented online not by one persistent self but by a continuous supply of unrelated strangers, none of which leads back.
 
 <img width="1915" height="821" alt="image" src="https://github.com/user-attachments/assets/37a62696-d1d5-4d86-bc1f-1237dcc90c68" />
 
-## Why Burner
+## Why Ash
 
 The modern web identifies you by default. Every site you touch fingerprints you, cookies you, and joins today's visit to everything you did before, until a detailed profile has assembled itself around a single durable identity you never see and cannot control. This is not the result of any wrongdoing. It is the cost of using the web as one consistent, observable self.
 
 Existing tools treat the symptom, not the cause. A VPN hides where you connect from but not who you are once you arrive. Private browsing clears local state but does nothing about fingerprinting or behavioral correlation. Anti-tracking extensions cut some third-party collection and leave first-party identification fully intact. Each narrows the surface. None removes the thing that actually leaks, which is that you show up as the same person every time.
 
-Burner removes the persistent identity instead of hiding it better. You never act on the web directly. You delegate, and what the web observes is never you.
+Ash removes the persistent identity instead of hiding it better. You never act on the web directly. You delegate, and what the web observes is never you.
 
 ## How it works
 
 You express intent in plain language. The system delegates the work to one or more agents, each running in its own isolated browser context with its own fingerprint, device characteristics, and network egress. No two agents share a signature. Each does its task and is destroyed on completion, leaving no state behind for anyone to correlate. To any site, there is no single user to track, only a series of unrelated participants, each seen once and never again.
 
 ```
-burner/
+ash/
 ├── isolation/        # a fresh, separable browser context per agent
 ├── reasoning/        # turns intent into actions, reasoning over each page live
 ├── orchestration/    # decomposes a task, fans it across agents, reconciles results

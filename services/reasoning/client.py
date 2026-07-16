@@ -32,7 +32,7 @@ class OpenAICompatibleClient:
         self.base_url = (base_url or os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")).rstrip(
             "/"
         )
-        self.model = model or os.environ.get("BURNER_LLM_MODEL", "gpt-4o-mini")
+        self.model = model or os.environ.get("ASH_LLM_MODEL", "gpt-4o-mini")
         if not self.api_key:
             raise LLMClientError("OPENAI_API_KEY is required")
 

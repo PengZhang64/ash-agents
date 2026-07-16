@@ -4,7 +4,7 @@ from typing import Any
 
 import httpx
 
-from burner_orchestrator.config import settings
+from ash_orchestrator.config import settings
 
 
 class ChangedetectionClient:
@@ -31,8 +31,8 @@ class ChangedetectionClient:
         self,
         url: str,
         *,
-        title: str = "Burner watch",
-        tag: str = "burner-sentinel",
+        title: str = "Ash watch",
+        tag: str = "ash-sentinel",
         fetch_backend: str = "html_webdriver",
         proxy: str | None = None,
     ) -> dict[str, Any]:

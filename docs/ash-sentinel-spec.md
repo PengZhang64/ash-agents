@@ -1,6 +1,6 @@
-# Burner Sentinel — Build Specification
+# Ash Sentinel — Build Specification
 
-Application spec for the **restock sentinel** preset on [Burner Agents](../README.md). Not the platform name.
+Application spec for the **restock sentinel** preset on [Ash Agents](../README.md). Not the platform name.
 
 A restock monitor that watches as a disposable stranger and assists checkout on the drop.
 
@@ -14,9 +14,9 @@ fires an instant alert when it comes back in stock, and optionally assists the u
 checkout under a clean identity. The disposability is the differentiator: ordinary
 monitors check from one IP/fingerprint and get rate-limited or blocked; ours does not.
 
-This is the "sentinel" wedge of the Burner idea: the watcher that was never there.
+This is the "sentinel" wedge of the Ash idea: the watcher that was never there.
 
-$BURNER meters the work: number of watches and buy-assist actions.
+$ASH meters the work: number of watches and buy-assist actions.
 
 ---
 
@@ -47,25 +47,25 @@ These are not code. They can sink the product. Do not skip.
 - **CloakBrowser** — stealth Chromium, drop-in Playwright replacement, per-launch
   fingerprint seed, BYO proxy. Slots in behind changedetection's Playwright fetcher so each
   check runs as a disposable identity.
-- **Burner orchestrator** (from the existing skeleton) — the thin layer we own: rotates a
+- **Ash orchestrator** (from the existing skeleton) — the thin layer we own: rotates a
   fresh identity per check, and on a restock alert, dispatches the buy-assist agent.
 - **browser-use** (optional, for the buy-assist agent) — drives the add-to-cart/checkout
   step under a fresh identity when a drop fires.
-- **$BURNER meter** (from skeleton) — meters watches and buy-assists. Stub now, chain later.
+- **$ASH meter** (from skeleton) — meters watches and buy-assists. Stub now, chain later.
 
 ---
 
 ## Architecture
 
 ```
-                 BURNER SENTINEL (our product + API)
+                 ASH SENTINEL (our product + API)
                           |
         +-----------------+------------------+
         |                                    |
-  changedetection.io                   Burner orchestrator (ours)
+  changedetection.io                   Ash orchestrator (ours)
   (self-hosted engine)                 - rotates identity per check
   - watches product page               - on alert -> buy-assist
-  - restock/price detection            - meters via $BURNER
+  - restock/price detection            - meters via $ASH
   - dashboard + notifications                  |
   - REST API  <------ we drive it -------------+
         |                                    |
@@ -87,11 +87,11 @@ Enable restock detection. Configure a notification (Discord or Telegram webhook)
 test page to in-stock and confirm the alert fires. THIS IS THE DEMO BACKBONE. Get it
 working before anything else.
 
-### Step 2 — Disposable identity per check (the Burner layer)
+### Step 2 — Disposable identity per check (the Ash layer)
 Put CloakBrowser behind changedetection's Playwright fetcher so each check uses a fresh
 fingerprint, and use changedetection's per-watch proxy config so each check egresses from a
 different IP. Prove via logs that two consecutive checks present different fingerprints/IPs.
-This is what makes it Burner and not just another monitor.
+This is what makes it Ash and not just another monitor.
 
 ### Step 3 — Buy-assist on the drop
 When the restock alert fires, the orchestrator dispatches a buy-assist agent (browser-use
@@ -100,7 +100,7 @@ the user's checkout. ASSIST, not autonomous mass-buy (see gate 2). The agent rep
 and its identity is destroyed.
 
 ### Step 4 — Meter + thin product UI
-Wire the $BURNER meter to count watches and buy-assists (stub balance for now). Put a thin
+Wire the $ASH meter to count watches and buy-assists (stub balance for now). Put a thin
 dashboard or use changedetection's own UI for the prototype.
 
 ### Step 5 — Demo polish

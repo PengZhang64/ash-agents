@@ -7,15 +7,15 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, StreamingResponse
 
-from burner_orchestrator.buy_assist_dispatch import BuyAssistDispatcher
-from burner_orchestrator.cd_client import ChangedetectionClient
-from burner_orchestrator.config import settings
-from burner_orchestrator.delegate_models import DelegateBody, DelegateResponse
-from burner_orchestrator.event_bus import EventBus
-from burner_orchestrator.identity_audit import IdentityAuditLog
-from burner_orchestrator.meter import BurnerMeter
-from burner_orchestrator.models import WatchRegistration, parse_changedetection_notification
-from burner_orchestrator.swarm_runner import DelegateRequest, SwarmRunner
+from ash_orchestrator.buy_assist_dispatch import BuyAssistDispatcher
+from ash_orchestrator.cd_client import ChangedetectionClient
+from ash_orchestrator.config import settings
+from ash_orchestrator.delegate_models import DelegateBody, DelegateResponse
+from ash_orchestrator.event_bus import EventBus
+from ash_orchestrator.identity_audit import IdentityAuditLog
+from ash_orchestrator.meter import AshMeter
+from ash_orchestrator.models import WatchRegistration, parse_changedetection_notification
+from ash_orchestrator.swarm_runner import DelegateRequest, SwarmRunner
 from fastapi.staticfiles import StaticFiles
 
 try:
@@ -29,8 +29,8 @@ DOCS_DIR = REPO_ROOT / "docs"
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="Burner", version="0.3.0")
-    meter = BurnerMeter(stub_balance=settings.burner_meter_stub_balance)
+    app = FastAPI(title="Ash", version="0.3.0")
+    meter = AshMeter(stub_balance=settings.ash_meter_stub_balance)
     audit = IdentityAuditLog()
     dispatcher = BuyAssistDispatcher()
     cd = ChangedetectionClient()
@@ -45,7 +45,7 @@ def create_app() -> FastAPI:
 
     @app.get("/health")
     def health() -> dict[str, str]:
-        return {"status": "ok", "service": "burner-agents"}
+        return {"status": "ok", "service": "ash-agents"}
 
     @app.get("/")
     def console() -> FileResponse:
@@ -61,7 +61,7 @@ def create_app() -> FastAPI:
     @app.get("/api/status")
     def status() -> dict:
         return {
-            "product": "burner-agents",
+            "product": "ash-agents",
             "changedetection_url": settings.changedetection_url,
             "test_product_url": settings.test_product_url,
             "cloakbrowser_enabled": settings.cloakbrowser_enabled,
@@ -147,7 +147,7 @@ def create_app() -> FastAPI:
 
     @app.post("/api/webhooks/changedetection")
     async def changedetection_webhook(request: Request) -> dict:
-        secret = request.headers.get("x-burner-secret", "")
+        secret = request.headers.get("x-ash-secret", "")
         if secret != settings.orchestrator_webhook_secret:
             raise HTTPException(status_code=401, detail="invalid webhook secret")
         payload = await request.json()
@@ -170,11 +170,11 @@ def create_app() -> FastAPI:
             for i in ids
         )
         return f"""<!DOCTYPE html>
-<html><head><title>Burner — legacy meter</title>
+<html><head><title>Ash — legacy meter</title>
 <style>body{{font-family:monospace;background:#000;color:#fff;padding:2rem}}
 a{{color:#fff}}</style></head><body>
 <h1>Legacy meter</h1>
-<p><a href="/">← Burner Agents console</a></p>
+<p><a href="/">← Ash Agents console</a></p>
 <p>Balance: {m['stub_balance']} · Watches: {m['watches']} · Buy-assists: {m['buy_assists']}</p>
 <ul>{rows or '<li>No checks yet</li>'}</ul>
 </body></html>"""

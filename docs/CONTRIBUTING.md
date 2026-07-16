@@ -1,12 +1,12 @@
 # Contributing
 
-Thanks for helping improve Burner Agents.
+Thanks for helping improve Ash Agents.
 
 ## Local setup
 
 ```bash
-git clone https://github.com/NotPBShaw/burner-agents.git
-cd burner-agents
+git clone https://github.com/PengZhang64/ash-agents.git
+cd ash-agents
 make -f scripts/Makefile demo
 ```
 
@@ -25,4 +25,4 @@ PYTHONPATH=.:..:../identity:../buy-assist pytest -q
 - Keep changes focused. Presentation and docs PRs should not change runtime behavior unless agreed.
 - Ensure `pytest` passes.
 - No em dashes in README or user-facing copy.
-- Platform name is **Burner Agents**. **Restock sentinel** is one application on the platform.
+- Platform name is **Ash Agents**. **Restock sentinel** is one application on the platform.

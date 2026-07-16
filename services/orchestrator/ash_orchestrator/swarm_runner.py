@@ -8,8 +8,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Callable
 
-from burner_orchestrator.config import settings
-from burner_orchestrator.event_bus import EventBus
+from ash_orchestrator.config import settings
+from ash_orchestrator.event_bus import EventBus
 
 try:
     from identity.rotation import DisposableIdentity, IdentityFactory  # type: ignore
@@ -21,9 +21,9 @@ except ImportError:
 
 try:
     from reasoning.models import AgentAction, AgentResult, TaskPlan  # type: ignore
-    from reasoning.planner import BurnerPlanner, PlannerError, get_planner  # type: ignore
+    from reasoning.planner import AshPlanner, PlannerError, get_planner  # type: ignore
 except ImportError:
-    BurnerPlanner = None  # type: ignore
+    AshPlanner = None  # type: ignore
     PlannerError = Exception  # type: ignore
     get_planner = None  # type: ignore
 
@@ -55,16 +55,16 @@ class SwarmRunner:
         *,
         identity_factory: Callable[[], Any] | None = None,
         product_base_url: str | None = None,
-        planner: BurnerPlanner | None = None,
+        planner: AshPlanner | None = None,
     ) -> None:
         self._bus = bus
         self._factory = identity_factory or (IdentityFactory() if IdentityFactory else None)
         self._product_url = (product_base_url or settings.test_product_url).rstrip("/")
         self._planner = planner
-        self._max_steps = int(os.environ.get("BURNER_MAX_AGENT_STEPS", "8"))
+        self._max_steps = int(os.environ.get("ASH_MAX_AGENT_STEPS", "8"))
         self._tasks: dict[str, asyncio.Task[None]] = {}
 
-    def _get_planner(self) -> BurnerPlanner:
+    def _get_planner(self) -> AshPlanner:
         if self._planner is not None:
             return self._planner
         if get_planner is None:
@@ -81,7 +81,7 @@ class SwarmRunner:
         raise ValueError("intent or preset required")
 
     def ensure_llm_ready(self) -> None:
-        if os.environ.get("BURNER_DEMO_MOCK", "").lower() in ("1", "true", "yes"):
+        if os.environ.get("ASH_DEMO_MOCK", "").lower() in ("1", "true", "yes"):
             return
         if not os.environ.get("OPENAI_API_KEY"):
             raise PlannerError("OPENAI_API_KEY is required (set in .env at repo root)")
@@ -170,7 +170,7 @@ class SwarmRunner:
             await self._bus.set_swarm(agent_rows)
 
         seed = "anon"
-        ua = "Burner/disposable"
+        ua = "Ash/disposable"
         if not self._factory or not AgentSession:
             return AgentResult(
                 agent_id=agent_id,

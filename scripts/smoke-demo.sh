@@ -3,7 +3,7 @@ set -euo pipefail
 
 ORCH="${ORCH_URL:-http://127.0.0.1:8090}"
 PRODUCT="${PRODUCT_URL:-http://127.0.0.1:8088}"
-export BURNER_DEMO_MOCK="${BURNER_DEMO_MOCK:-1}"
+export ASH_DEMO_MOCK="${ASH_DEMO_MOCK:-1}"
 
 echo "==> health"
 curl -sf "$ORCH/health" | grep -q ok
@@ -28,6 +28,6 @@ for i in $(seq 1 30); do
 done
 
 echo "==> console"
-curl -sf "$ORCH/" | grep -q BURNER
+curl -sf "$ORCH/" | grep -q ASH
 
 echo "==> smoke ok (task $TASK_ID)"

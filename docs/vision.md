@@ -1,6 +1,6 @@
 # Vision
 
-Burner is described in the [whitepaper](burner_whitepaper.pdf). You delegate intent. The web sees strangers, not you.
+Ash is described in the [whitepaper](ash_whitepaper.pdf). You delegate intent. The web sees strangers, not you.
 
 ## The model
 
@@ -25,7 +25,7 @@ cp config/.env.example .env
 make -f scripts/Makefile demo
 ```
 
-CI and smoke use `BURNER_DEMO_MOCK=1` (no API key). Production demos need a real key.
+CI and smoke use `ASH_DEMO_MOCK=1` (no API key). Production demos need a real key.
 
 ## Roadmap
 

@@ -1,4 +1,4 @@
-# Burner — whitepaper demo script (90s)
+# Ash — whitepaper demo script (90s)
 
 ## Before stage
 
@@ -32,4 +32,4 @@ Open http://127.0.0.1:8090/
 
 - 503: missing `OPENAI_API_KEY` in `.env`
 - Playwright: `playwright install chromium` in orchestrator venv
-- Offline check: `BURNER_DEMO_MOCK=1 make -f scripts/Makefile smoke`
+- Offline check: `ASH_DEMO_MOCK=1 make -f scripts/Makefile smoke`

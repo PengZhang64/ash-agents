@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from burner_orchestrator.config import settings
-from burner_orchestrator.models import RestockAlert
+from ash_orchestrator.config import settings
+from ash_orchestrator.models import RestockAlert
 
 
 class BuyAssistDispatcher:

@@ -1,7 +1,7 @@
 services:
   changedetection:
     image: ghcr.io/dgtlmoon/changedetection.io:0.47.04
-    container_name: burner-cd
+    container_name: ash-cd
     ports:
       - "5000:5000"
     volumes:
@@ -19,14 +19,14 @@ services:
 
   playwright-chrome:
     image: dgtlmoon/sockpuppetbrowser:latest
-    container_name: burner-playwright
+    container_name: ash-playwright
     cap_add:
       - SYS_ADMIN
     restart: unless-stopped
 
   test-product:
     build: ../demo/test-product
-    container_name: burner-test-product
+    container_name: ash-test-product
     ports:
       - "8088:8088"
     healthcheck:
@@ -37,13 +37,13 @@ services:
 
   orchestrator:
     build: ../services/orchestrator
-    container_name: burner-orchestrator
+    container_name: ash-orchestrator
     ports:
       - "8090:8090"
     environment:
       - CHANGEDETECTION_URL=http://changedetection:5000
       - TEST_PRODUCT_URL=http://test-product:8088
-      - BURNER_METER_STUB_BALANCE=1000
+      - ASH_METER_STUB_BALANCE=1000
     volumes:
       - ../services/identity:/app/identity_pkg:ro
       - ../services/buy-assist/buy_assist:/app/buy_assist_pkg:ro

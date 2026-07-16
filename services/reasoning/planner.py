@@ -19,7 +19,7 @@ class PlannerError(Exception):
     pass
 
 
-class BurnerPlanner(Protocol):
+class AshPlanner(Protocol):
     async def decompose(self, intent: str, n_agents: int, base_url: str) -> TaskPlan: ...
     async def next_action(
         self, goal: str, url: str, snapshot: str
@@ -27,7 +27,7 @@ class BurnerPlanner(Protocol):
     async def reconcile(self, intent: str, results: list[AgentResult]) -> ReconcileResult: ...
 
 
-class LLMBurnerPlanner:
+class LLMAshPlanner:
     def __init__(self, client: OpenAICompatibleClient | None = None) -> None:
         self._client = client or OpenAICompatibleClient()
 
@@ -84,8 +84,8 @@ class LLMBurnerPlanner:
         return ReconcileResult(summary=data.get("summary", "Task completed."))
 
 
-class MockBurnerPlanner:
-    """Deterministic planner for CI and BURNER_DEMO_MOCK=1."""
+class MockAshPlanner:
+    """Deterministic planner for CI and ASH_DEMO_MOCK=1."""
 
     async def decompose(self, intent: str, n_agents: int, base_url: str) -> TaskPlan:
         base = base_url.rstrip("/")
@@ -126,7 +126,7 @@ class MockBurnerPlanner:
         )
 
 
-def get_planner() -> BurnerPlanner:
-    if os.environ.get("BURNER_DEMO_MOCK", "").lower() in ("1", "true", "yes"):
-        return MockBurnerPlanner()
-    return LLMBurnerPlanner()
+def get_planner() -> AshPlanner:
+    if os.environ.get("ASH_DEMO_MOCK", "").lower() in ("1", "true", "yes"):
+        return MockAshPlanner()
+    return LLMAshPlanner()

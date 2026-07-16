@@ -28,8 +28,8 @@ def parse_changedetection_notification(payload: dict[str, Any]) -> RestockAlert:
 
 class WatchRegistration(BaseModel):
     url: str
-    title: str = "Burner Agents restock watch"
-    tag: str = "burner-sentinel"
+    title: str = "Ash Agents restock watch"
+    tag: str = "ash-sentinel"
     proxy: str | None = None
 
 

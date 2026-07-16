@@ -1,3 +1,3 @@
 # demo
 
-Local demo product page and Burner Agents web console for presentations.
+Local demo product page and Ash Agents web console for presentations.

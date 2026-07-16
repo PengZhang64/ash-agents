@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     changedetection_api_key: str = ""
     test_product_url: str = "http://localhost:8088"
     orchestrator_webhook_secret: str = "dev-secret-change-me"
-    burner_meter_stub_balance: int = 1000
+    ash_meter_stub_balance: int = 1000
     cloakbrowser_enabled: bool = False
     proxy_pool: str = ""
 

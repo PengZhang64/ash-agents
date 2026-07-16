@@ -1,5 +1,5 @@
 """LLM reasoning layer: decompose intent, plan agent steps, reconcile results."""
 
-from reasoning.planner import BurnerPlanner, PlannerError, get_planner
+from reasoning.planner import AshPlanner, PlannerError, get_planner
 
-__all__ = ["BurnerPlanner", "PlannerError", "get_planner"]
+__all__ = ["AshPlanner", "PlannerError", "get_planner"]
