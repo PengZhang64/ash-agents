@@ -2,8 +2,6 @@
 
 A swarm of disposable agents for unattributable web interaction. Each task runs under a fresh identity that is destroyed on completion, so you are represented online not by one persistent self but by a continuous supply of unrelated strangers, none of which leads back.
 
-<img width="1915" height="821" alt="image" src="https://github.com/user-attachments/assets/37a62696-d1d5-4d86-bc1f-1237dcc90c68" />
-
 ## Why Ash
 
 The modern web identifies you by default. Every site you touch fingerprints you, cookies you, and joins today's visit to everything you did before, until a detailed profile has assembled itself around a single durable identity you never see and cannot control. This is not the result of any wrongdoing. It is the cost of using the web as one consistent, observable self.
@@ -29,8 +27,6 @@ ash/
 - **Orchestration** binds the agents to your single intent entirely within your trust boundary. It is never exposed to any site. The coordination is private; only the multiplicity is observable.
 - **Identity** is scoped to the task, not to you and not to a durable session. Completion and erasure are a single event. No archive, no fallback copy, nothing kept against the possibility it might later be wanted.
 
-<img width="1672" height="941" alt="unknown" src="https://github.com/user-attachments/assets/054422a5-e4dd-4a51-9e66-64feeb2f556b" />
-
 ## Design principles
 
 Three ideas govern the system.
@@ -48,7 +44,6 @@ Three ideas govern the system.
 - **No persistent profile.** Because identities are destroyed and no state is retained, there is no durable record for a profile to attach to. The adversary's main instrument, accumulation of behavior over a stable identity, is denied its precondition.
 - **No exposed center.** Because coordination lives only within your trust boundary, an observer of the swarm sees unrelated participants and no coordinating entity. There is no single identity whose discovery compromises the others.
 
-<img width="1672" height="941" alt="unknown" src="https://github.com/user-attachments/assets/11fabb34-cfac-4596-af4b-c97b0345b2d7" />
 
 ## License
 
